@@ -27,7 +27,7 @@ task testcustom(dependsOn: 'build') {
     }
 }
 
-task build-custom(dependsOn: 'clean') {
+task buildcustom(dependsOn: 'clean') {
     doLast {
         println "Custom build task executed!"
     }
