@@ -44,5 +44,5 @@ task createDistribution(type: Zip) {
     dependsOn 'jar'
     from jar
     archiveFileName = "hello-${project.version}.zip"
-    destinationDir = file("$buildDir/distributions")
+    into("$buildDir/distributions")
 }
