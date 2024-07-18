@@ -1,0 +1,48 @@
+apply plugin: 'java'
+
+archivesBaseName = 'hello'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test'
+        }
+    }
+}
+
+task hello(dependsOn: 'test-custom') {
+    doLast {
+        println "Hello task executed successfully!"
+    }
+}
+
+task test-custom(dependsOn: 'build') {
+    doLast {
+        println "Custom test task executed!"
+    }
+}
+
+task build-custom(dependsOn: 'clean') {
+    doLast {
+        println "Custom build task executed!"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+    from sourceSets.main.output
+}
+
+task createDistribution(type: Zip) {
+    dependsOn 'jar'
+    from jar
+    archiveFileName = "hello-${project.version}.zip"
+    destinationDir file("$buildDir/distributions")
+}
