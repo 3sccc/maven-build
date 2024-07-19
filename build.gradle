@@ -35,8 +35,7 @@ subprojects {
             println 'Hello world!'
         }
     }
-    }
-    
+
     jar {
         manifest {
             attributes 'Main-Class': 'com.example.Main'
