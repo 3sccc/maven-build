@@ -19,14 +19,14 @@ allprojects {
     repositories {
         mavenCentral()
     }
-
-    dependencies {
-        testImplementation 'junit:junit:4.13.2'
-    }
 }
 
 subprojects {
     apply plugin: 'java'
+    
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+    }
 
     tasks.register('hello') {
         doLast {
