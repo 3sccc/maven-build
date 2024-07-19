@@ -31,7 +31,6 @@ subprojects {
     dependencies {
         testImplementation 'junit:junit:4.13.2'
         // https://mvnrepository.com/artifact/org.jboss.arquillian.junit/arquillian-junit-container
-        testImplementation 'org.jboss.arquillian.container:arquillian-wildfly-adapter:1.0.0.Final'
         testImplementation 'org.jboss.arquillian.junit:arquillian-junit-container:1.7.0.Final'
         testImplementation 'org.jboss.shrinkwrap:shrinkwrap-api:1.2.6'
         implementation 'javax.xml.ws:jaxws-api:2.3.1'
