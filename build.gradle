@@ -39,7 +39,7 @@ subprojects {
 
     tasks.register('test-custom') {
         dependsOn 'test'
-        dependsOn 'build'
+        dependsOn 'build-custom'
     }
 
     tasks.register('build-custom') {
