@@ -31,9 +31,7 @@ subprojects {
     dependencies {
         testImplementation 'junit:junit:4.13.2'
         testImplementation 'org.jboss.arquillian:arquillian-junit-container:1.7.0.Final'
-        testImplementation 'org.jboss.arquillian.junit:arquillian-junit-container:1.7.0.Final'
         testImplementation 'org.jboss.shrinkwrap:shrinkwrap-api:1.2.6'
-        testImplementation 'org.jboss.shrinkwrap.descriptor:shrinkwrap-descriptor-api:1.0.1'
         implementation 'javax.xml.ws:jaxws-api:2.3.1'
         implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
     }
