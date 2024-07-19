@@ -58,12 +58,6 @@ subprojects {
         from sourceSets.main.output
     }
 
-    tasks.register('createDistribution', Zip) {
-        dependsOn 'jar'
-        from jar
-        archiveFileName = "hello-${project.version}.zip"
-        into("$buildDir/distributions")
-    }
     tasks.withType(Test) {
         ignoreFailures = true
     }
