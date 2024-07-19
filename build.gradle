@@ -3,7 +3,7 @@ apply plugin: 'java'
 allprojects {
     apply plugin: 'java'
     
-    archivesName = 'hello'
+    archivesBaseName = 'hello'
     
     sourceSets {
         main {
