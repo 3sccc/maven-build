@@ -13,7 +13,6 @@ allprojects {
             java {
                 srcDir 'src/test/java'
             }
-            ignoreFailures = true
         }
     }
 
@@ -54,5 +53,8 @@ subprojects {
         from jar
         archiveFileName = "hello-${project.version}.zip"
         into("$buildDir/distributions")
+    }
+    tasks.withType(Test) {
+        ignoreFailures = true
     }
 }
