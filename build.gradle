@@ -22,10 +22,6 @@ allprojects {
 subprojects {
     apply plugin: 'java'
 
-    task clean(type: Delete) {
-        delete rootProject.buildDir
-    }
-    
     task hello(dependsOn: 'testcustom') {
         doLast {
             println "Hello task executed successfully!"
