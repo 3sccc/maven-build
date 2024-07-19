@@ -30,7 +30,7 @@ subprojects {
     
     dependencies {
         testImplementation 'junit:junit:4.13.2'
-        implementation 'javax.xml.ws:jaxws-api:2.3.3'
+        implementation 'javax.xml.ws:jaxws-api:2.2.3'
     }
 
     tasks.register('hello') {
