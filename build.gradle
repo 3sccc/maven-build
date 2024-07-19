@@ -30,22 +30,11 @@ allprojects {
 subprojects {
     apply plugin: 'java'
 
-    task hello(dependsOn: 'testcustom') {
+    tasks.register('hello') {
         doLast {
-            println "Hello task executed successfully!"
+            println 'Hello world!'
         }
     }
-
-    task testcustom(dependsOn: 'build') {
-        doLast {
-            println "Custom test task executed!"
-        }
-    }
-
-    task buildcustom(dependsOn: 'clean') {
-        doLast {
-            println "Custom build task executed!"
-        }
     }
     
     jar {
