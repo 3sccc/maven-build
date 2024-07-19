@@ -39,7 +39,7 @@ subprojects {
 
     tasks.register('test-custom') {
         dependsOn 'test'
-        dependsOn tasks.build
+        dependsOn 'build'
     }
 
     tasks.register('build-custom') {
@@ -48,7 +48,7 @@ subprojects {
 
     tasks.register('hello') {
         println("HELLO, KILL ME PLEASE")
-        dependsOn tasks.test-custom
+        dependsOn 'test-custom'
     }
     
     jar {
