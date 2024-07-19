@@ -19,13 +19,14 @@ allprojects {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        implementation 'javax.xml.ws:jaxws-api:2.3.3'
-    }
 }
 
 subprojects {
     apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
     
     dependencies {
         testImplementation 'junit:junit:4.13.2'
