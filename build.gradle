@@ -52,6 +52,7 @@ subprojects {
     }
     
     jar {
+        archiveFileName.set("aprokopuk-${project.version}.jar")
         manifest {
             attributes 'Main-Class': 'com.example.Main'
         }
