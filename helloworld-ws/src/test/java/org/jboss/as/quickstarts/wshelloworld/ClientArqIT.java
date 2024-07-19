@@ -53,7 +53,7 @@ public class ClientArqIT {
 
     private HelloWorldService client;
 
-    @Deployment(testable = false)
+    @Deployment(testable = true)
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, APP_NAME + ".war").addPackage(HelloWorldService.class.getPackage());
     }
