@@ -1,0 +1,3 @@
+rootProject.name = 'maven-build'
+
+include 'helloworld-ws'
