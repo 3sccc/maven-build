@@ -1,48 +1,60 @@
 apply plugin: 'java'
 
-archivesBaseName = 'hello'
-
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
+allprojects {
+    apply plugin: 'java'
+    
+    archivesName = 'hello'
+    
+    sourceSets {
+        main {
+            java {
+                srcDir 'src'
+            }
+        }
+        test {
+            java {
+                srcDir 'src/test'
+            }
         }
     }
-    test {
-        java {
-            srcDir 'src/test'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    task clean(type: Delete) {
+        delete rootProject.buildDir
+    }
+    
+    task hello(dependsOn: 'testcustom') {
+        doLast {
+            println "Hello task executed successfully!"
         }
     }
-}
 
-task hello(dependsOn: 'testcustom') {
-    doLast {
-        println "Hello task executed successfully!"
+    task testcustom(dependsOn: 'build') {
+        doLast {
+            println "Custom test task executed!"
+        }
     }
-}
 
-task testcustom(dependsOn: 'build') {
-    doLast {
-        println "Custom test task executed!"
+    task buildcustom(dependsOn: 'clean') {
+        doLast {
+            println "Custom build task executed!"
+        }
     }
-}
-
-task buildcustom(dependsOn: 'clean') {
-    doLast {
-        println "Custom build task executed!"
+    
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.example.Main'
+        }
+        from sourceSets.main.output
     }
-}
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'com.example.Main'
+    task createDistribution(type: Zip) {
+        dependsOn 'jar'
+        from jar
+        archiveFileName = "hello-${project.version}.zip"
+        into("$buildDir/distributions")
     }
-    from sourceSets.main.output
-}
-
-task createDistribution(type: Zip) {
-    dependsOn 'jar'
-    from jar
-    archiveFileName = "hello-${project.version}.zip"
-    into("$buildDir/distributions")
 }
