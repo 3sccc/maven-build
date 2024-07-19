@@ -37,10 +37,20 @@ subprojects {
         implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
     }
 
-    tasks.register('hello') {
+    tasks.register('test-custom') {
         dependsOn 'test'
+        dependsOn tasks.build
     }
 
+    tasks.register('build-custom') {
+        dependsOn 'build'
+    }
+
+    tasks.register('hello') {
+        println("HELLO, KILL ME PLEASE")
+        dependsOn tasks.test-custom
+    }
+    
     jar {
         manifest {
             attributes 'Main-Class': 'com.example.Main'
