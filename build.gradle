@@ -30,7 +30,7 @@ subprojects {
 
     tasks.register('hello') {
         doLast {
-            gradle test
+            test
         }
     }
 
