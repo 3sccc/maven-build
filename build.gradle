@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
 allprojects {
-    archivesBaseName = 'hello'
+    archivesBaseName = 'aprokopuk'
 
     sourceSets {
         main {
